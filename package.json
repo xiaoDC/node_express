@@ -1,0 +1,13 @@
+﻿{
+	"name" : "my_node_project",
+	"description" : "website using express of nodejs",
+	"version" : "0.0.1",
+	"author" : "chenglong",
+	"private" : true,
+	"dependencies" : {
+		"express" : "4.9.8",
+		"jquery" : "2.1.x",
+		"bootstrap" : "3.x",
+		"jade":">=1.5.0"
+	}
+}
