@@ -1,5 +1,6 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    path = require('path');
 
 var	PORT = process.env.PORT || 3000;
 var PUB = __dirname + '/public',  //配置项目的一些static元素，css等
@@ -14,12 +15,19 @@ app.set('port', PORT);
 app.set('views', VIEWS);  
 //设置模板引擎
 app.set('view engine', 'jade');
-// app.use()
+
+app.use(express.static(path.join(__dirname, '/')));
+
 
 app.use('/',routes);
 app.use('/index', routes);
 app.use('/test', test);
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 app.listen(PORT);
 console.log('Listening on :' + PORT);
-// console.log(__dirname);

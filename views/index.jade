@@ -1,3 +1,15 @@
 extends layout
 block content
 	div this is index pages
+	script(type="text/javascript",src="sea-modules/seajs/seajs/2.2.1/sea-debug.js")
+	script.
+		seajs.config({
+			alias:{
+				"jquery":"/sea-modules/jquery/jquery/2.1.0/jquery-debug.js"
+			}
+		})
+
+		seajs.use(["jquery"], function($){
+			var el = $("div");
+			console.log(el);
+		})
