@@ -15,23 +15,23 @@ block content
 		div(class="collapse navbar-collapse",id="bs-navbar-collapse-1")
 			ul(class="nav navbar-nav")
 				li.active
-					a(href="/index") Index
+					a(class="bar",href="#") Index
 				li
-					a(href="/category") Category
+					a(class="bar",href="#") Category
 				li.dropdown
 					a(href="#", class="dropdown-toggle", data-toggle="dropdown") Years
 						span.caret
 					ul(class="dropdown-menu", role="menu")
 						li
-							a(href="#") 2015
+							a(class="years", href="#") 2015
 						li
-							a(href="#") 2014
+							a(class="years", href="#") 2014
 						li
-							a(href="#") 2013
+							a(class="years", href="#") 2013
 						li
-							a(href="#") 2012
+							a(class="years", href="#") 2012
 						li
-							a(href="#") 2011
+							a(class="years", href="#") 2011
 			form(class="navbar-form navbar-right", role="search")
 				div(class="form-group")
 					input(type="text",class="form-control",placeholder="Search")
@@ -46,9 +46,35 @@ block content
 		})
 
 		seajs.use(["$","bootstrap"], function($){
-			$("#bs-navbar-collapse-1").delegate("li","click", function(event){
-				// 获取点击事件的元素
+			$("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click", function(event){
+				// 获取导航栏的点击事件的元素
 				var $clickEl = event.target || event.currentTarget;
-				console.log( $clickEl );
+				console.log( $clickEl.innerHTML );
+				console.log( $clickEl.innerText );
+			});
+			$("#bs-navbar-collapse-1").delegate("a[class='years'][href='#']","click", function(event){
+				// 获取年份的点击事件的元素
+				var $clickEl = event.target || event.currentTarget;
+				console.log( $clickEl.innerHTML );
+				console.log( $clickEl.innerText );
+			});
+
+			//点击搜索按钮
+			$(".navbar-form").submit(function(event){
+				var $inputs = $(this).find("input");
+				var flag = false;
+				for(var i=0, len=$inputs.length; i<len; i++){
+					var $el = $inputs[i];
+					if($el.value){
+						flag = true;
+						break;
+					}
+				}
+				if(!flag ){
+					return false;    //阻止表单提交
+				}
+				else{
+					console.log("允许表单提交");
+				}
 			});
 		})
