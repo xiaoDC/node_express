@@ -1,5 +1,9 @@
 doctype html
 html
 	include header
+	block links
+	link(rel="stylesheet",href="/sea-modules/gallery/bootstrap/3.0.0/bootstrap.css")
+	block scripts
+		script(type="text/javascript",src="sea-modules/seajs/seajs/2.2.1/sea-debug.js")
 	body
 		block content
