@@ -6,8 +6,7 @@ var	PORT = process.env.PORT || 3000;
 var PUB = __dirname + '/public',  //配置项目的一些static元素，css等
 		VIEWS = __dirname + '/views'; //配置项目的 view
 
-var routes = require('./routes/index'),
-		test = require('./routes/test');
+var site = require('./routes/index');
 
 //设置端口号
 app.set('port', PORT);   
@@ -18,10 +17,8 @@ app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, '/')));
 
-
-app.use('/',routes);
-app.use('/index', routes);
-app.use('/test', test);
+app.use('/',site);
+app.use('/:id',site.id);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

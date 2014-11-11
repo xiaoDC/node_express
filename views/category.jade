@@ -14,9 +14,9 @@ block content
 		// Collect the nav links, forms, and other content for toggling
 		div(class="collapse navbar-collapse",id="bs-navbar-collapse-1")
 			ul(class="nav navbar-nav")
-				li.active
-					a(class="bar",href="/Index") Index
 				li
+					a(class="bar",href="/Index") Index
+				li.active
 					a(class="bar",href="/Category") Category
 				li.dropdown
 					a(href="#", class="dropdown-toggle", data-toggle="dropdown") Years
@@ -46,11 +46,20 @@ block content
 		})
 
 		seajs.use(["$","bootstrap"], function($){
-			//- $("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click", function(event){
-			//- 	// 获取导航栏的点击事件的元素
-			//- 	var $clickEl = event.target || event.currentTarget;
-			//- 	$.ajax({url:"/"+ $clickEl.innerText});
-			//- });
+			$("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click", function(event){
+				// 获取导航栏的点击事件的元素
+				var $clickEl = event.target || event.currentTarget;
+				console.log( $clickEl.innerHTML );
+				console.log( $clickEl.innerText );
+				$.ajax({
+					url:"/"+ $clickEl.innerText,
+					dataType:"html",
+					type:"GET",
+					success:function(res){
+						console.log(res);
+					}
+				});
+			});
 			$("#bs-navbar-collapse-1").delegate("a[class='years'][href='#']","click", function(event){
 				// 获取年份的点击事件的元素
 				var $clickEl = event.target || event.currentTarget;
