@@ -10,10 +10,11 @@ router.get('/', function(req, res){
 	});
 });
 
-router.id = function(req, res){
-	var title = req.params.id,
-	id = title.toLowerCase();
-	res.render(id,{
+router.action = function(req, res){
+	var title = req.params.action;
+	var pageName = title.toLowerCase();
+	console.log( title, '请求 '+title+' 页面');
+	res.render(pageName,{
 		title:title
 	});
 }

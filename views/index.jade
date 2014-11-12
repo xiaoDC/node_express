@@ -41,11 +41,15 @@ block content
 		seajs.config({
 			alias:{
 				"$":"/sea-modules/jquery/jquery/2.1.0/jquery-debug.js",
-				"bootstrap":"/sea-modules/gallery/bootstrap/3.0.0/bootstrap.js"
+				"bootstrap":"/sea-modules/gallery/bootstrap/3.0.0/bootstrap.js",
+				"test_a":"/public/js/test/b.min.js"
 			}
 		})
 
-		seajs.use(["$","bootstrap"], function($){
+		seajs.use(["$","test_a", "bootstrap"], function($, test_a){
+			var a = new test_a(2);
+			var b = a.area();
+			console.log( b );
 			//- $("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click", function(event){
 			//- 	// 获取导航栏的点击事件的元素
 			//- 	var $clickEl = event.target || event.currentTarget;

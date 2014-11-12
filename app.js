@@ -14,11 +14,12 @@ app.set('port', PORT);
 app.set('views', VIEWS);  
 //设置模板引擎
 app.set('view engine', 'jade');
-
+// app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, '/')));
+// app.use(express.favicon());
 
 app.use('/',site);
-app.use('/:id',site.id);
+app.use('/:action',site.action);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
