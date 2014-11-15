@@ -1,6 +1,6 @@
 {
   "family": "",
-  "name": "my_node_project",
+  "name": "node_express",
   "version": "1.0.0",
   "description": "a WebSite with using nodejs,express,grunt,seajs",
   "homepage": "https://github.com/xiaoDC/node_express",
@@ -10,6 +10,10 @@
   ],
   "licenses": "MIT",
   "spm": {
+    "output": [
+      "node_express.js",
+      "node_express.css"
+    ],
     "alias": {
       "sea": "sea-modules\\seajs\\seajs\\2.2.1\\sea",
       "jquery": "sea-modules\\jquery\\jquery\\2.1.0\\jquery",

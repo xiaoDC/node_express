@@ -4,4 +4,4 @@
 
 ## 1.0.0
 
-`new` /my_node_project First version.
+`new` /node_express First version.
