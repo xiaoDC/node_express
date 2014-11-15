@@ -1,4 +1,4 @@
-# a simple project using nodejs
+# a simple project using nodejs #
 ## 一个简单的node项目
 
 ##1. 后端使用node的express框架，数据库使用的是NoSQL；

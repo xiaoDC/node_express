@@ -1,0 +1,16 @@
+.navbar {
+  font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+  font-size: 20px; }
+
+.content {
+  font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+  font-size: 15px;
+  margin: 50px auto;
+  padding: 20px;
+  line-height: 26px;
+  width: 960px;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-radius: 2px; }
+
+/*# sourceMappingURL=index.css.map */
