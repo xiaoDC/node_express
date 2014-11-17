@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express(),
-    path = require('path');
+    path = require('path'),
+		favicon = require('serve-favicon');
 
 var	PORT = process.env.PORT || 3000;
 var PUB = __dirname + '/public',  //配置项目的一些static元素，css等
@@ -16,7 +17,8 @@ app.set('views', VIEWS);
 app.set('view engine', 'jade');
 // app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, '/')));
-// app.use(express.favicon());
+// 设置页面的icon
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 app.use('/',site);
 app.use('/:action',site.action);

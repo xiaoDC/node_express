@@ -37,7 +37,8 @@
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
-    "jade": "^1.7.0"
+    "jade": "^1.7.0",
+    "serve-favicon": "^2.1.6"
   },
   "devDependencies": {},
   "scripts": {
@@ -48,3 +49,4 @@
     "url": "https://github.com/xiaoDC/node_express/issues"
   }
 }
+
