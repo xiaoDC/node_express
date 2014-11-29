@@ -2,12 +2,19 @@ var express = require('express'),
     app = express(),
     path = require('path'),
 		favicon = require('serve-favicon');
+var mongoose = require('mongoose');
+var config = require('./schema/config.js');
+global.db = mongoose.connect(config.mongodb);
 
 var	PORT = process.env.PORT || 3000;
 var PUB = __dirname + '/public',  //配置项目的一些static元素，css等
 		VIEWS = __dirname + '/views'; //配置项目的 view
 
 var site = require('./routes/index');
+
+
+// 连接mongodb数据库
+
 
 //设置端口号
 app.set('port', PORT);   
