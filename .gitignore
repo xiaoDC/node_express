@@ -23,4 +23,5 @@ sea-modules
 .cache
 .sass-cache
 !.gitignore
+!.gitattributes
 app.sublime-workspace

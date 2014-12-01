@@ -1,7 +1,7 @@
 // config.js
 var db ={
-	"mongodb": "mongodb://localhost/test"
-	,"database": "test"
+	"mongodb": "mongodb://localhost/movie"
+	,"database": "movie"
 	,"server": "localhost"
 };
 

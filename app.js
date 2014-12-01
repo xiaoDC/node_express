@@ -5,6 +5,16 @@ var express = require('express'),
 var mongoose = require('mongoose');
 var config = require('./schema/config.js');
 global.db = mongoose.connect(config.mongodb);
+var bcrypt = require('bcrypt');
+bcrypt.genSalt(10, function(err, salt){
+	if(err) next(err);
+	global.salt = salt;
+	console.log('得到的salt是：', salt);
+	bcrypt.hash('chenglong', salt, function(error, encrypted){
+		if(error) next(error);
+		console.log('加密后的：', encrypted);
+	})
+})
 
 var	PORT = process.env.PORT || 3000;
 var PUB = __dirname + '/public',  //配置项目的一些static元素，css等
