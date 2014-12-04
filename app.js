@@ -1,11 +1,12 @@
-var express = require('express'),
-    app = express(),
-    path = require('path'),
-		favicon = require('serve-favicon');
+var express  = require('express'),
+app          = express(),
+path         = require('path'),
+favicon      = require('serve-favicon');
 var mongoose = require('mongoose');
-var config = require('./schema/config.js');
-global.db = mongoose.connect(config.mongodb);
-var bcrypt = require('bcrypt');
+var config   = require('./schema/config.js');
+var bcrypt   = require('bcrypt');
+global.db    = mongoose.connect(config.mongodb);
+
 bcrypt.genSalt(10, function(err, salt){
 	if(err) next(err);
 	global.salt = salt;
@@ -17,8 +18,8 @@ bcrypt.genSalt(10, function(err, salt){
 })
 
 var	PORT = process.env.PORT || 3000;
-var PUB = __dirname + '/public',  //配置项目的一些static元素，css等
-		VIEWS = __dirname + '/views'; //配置项目的 view
+var PUB  = __dirname + '/public',  //配置项目的一些static元素，css等
+VIEWS    = __dirname + '/views'; //配置项目的 view
 
 var site = require('./routes/index');
 

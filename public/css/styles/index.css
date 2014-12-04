@@ -1,16 +1,58 @@
 .navbar {
+  background-color: rgba(0, 0, 0, 0.4);
   font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-  font-size: 20px; }
+  font-size: 20px;
+  padding-bottom: -20px; }
+  .navbar ul > li > a {
+    color: white; }
+    .navbar ul > li > a:hover, .navbar ul > li > a:focus {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4); }
 
-.content {
-  font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-  font-size: 15px;
-  margin: 50px auto;
-  padding: 20px;
-  line-height: 26px;
-  width: 960px;
-  border-left: 1px solid #dddddd;
-  border-right: 1px solid #dddddd;
-  border-radius: 2px; }
+.pagepiling {
+  width: 100%;
+  height: 100%; }
+  .pagepiling .section {
+    font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+    font-size: 15px;
+    margin: 0;
+    padding: 50px 0 0;
+    line-height: 26px;
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+    .pagepiling .section #sliderBox {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      *zoom: 1;
+      clear: both; }
+      .pagepiling .section #sliderBox ul.imgs {
+        float: left;
+        padding: 0;
+        margin: 0 auto; }
+        .pagepiling .section #sliderBox ul.imgs li {
+          list-style: none;
+          float: left;
+          width: 100%;
+          height: 100%;
+          padding: 0; }
+          .pagepiling .section #sliderBox ul.imgs li img {
+            width: 100%;
+            height: 100%; }
+      .pagepiling .section #sliderBox ul.count {
+        position: absolute;
+        bottom: 20px;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        list-style: none;
+        clear: both; }
+        .pagepiling .section #sliderBox ul.count li {
+          float: left;
+          position: relative;
+          right: 50%;
+          padding: 0 20px;
+          display: block; }
 
 /*# sourceMappingURL=index.css.map */

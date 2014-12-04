@@ -1,86 +1,116 @@
 extends layout
-block links
+block	links
 	link(rel="stylesheet",href="/public/css/styles/index.css")
-block content
-	nav(class="navbar navbar-default navbar-fixed-top", role="navigation")
+block	content
+	nav(class="navbar	navbar-fixed-top",	role="navigation")
 		div(class="container-fluid")
-			//Brand and toggle get grouped for better mobile display
+			//Brand	and	toggle	get	grouped	for	better	mobile	display
 			div(class="navbar-header")
-				button(type="button", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-navbar-collapse-1")
-					span(class="sr-only") Toggle navigation
+				button(type="button",	class="navbar-toggle	collapsed",	data-toggle="collapse",	data-target="#bs-navbar-collapse-1")
+					span(class="sr-only") Toggle	navigation
 					span(class="icon-bar")
 					span(class="icon-bar")
 					span(class="icon-bar")
-				a(class="navbar-brand",href="#") Movies
+				a(class="navbar-brand",href="#")	Movies
 
-		// Collect the nav links, forms, and other content for toggling
-		div(class="collapse navbar-collapse",id="bs-navbar-collapse-1")
-			ul(class="nav navbar-nav")
-				li.active
-					a(class="bar",href="/Index") Index
-				li
-					a(class="bar",href="/Category") Category
-				li.dropdown
-					a(href="#", class="dropdown-toggle", data-toggle="dropdown") Years
-						span.caret
-					ul(class="dropdown-menu", role="menu")
-						li
-							a(class="years", href="#") 2015
-						li
-							a(class="years", href="#") 2014
-						li
-							a(class="years", href="#") 2013
-						li
-							a(class="years", href="#") 2012
-						li
-							a(class="years", href="#") 2011
-			form(class="navbar-form navbar-right", role="search")
+		//	Collect	the	nav	links,	forms,	and	other	content	for	toggling
+		div(class="collapse	navbar-collapse",id="bs-navbar-collapse-1")
+			ul(class="nav	navbar-nav", id="menu")
+				li(data-menuanchor="page1", class="active")
+					a(class="bar",href="/#page1")	Index
+				li(data-menuanchor="page2")
+					a(class="bar",href="/#page2")	Category
+				li(data-menuanchor="page3")
+					a(class="bar", href="/#page3")	Years
+			form(class="navbar-form	navbar-right",	role="search")
 				div(class="form-group")
 					input(type="text",class="form-control",placeholder="Search")
-				button(type="submit",class="btn btn-default")
-					span(class="glyphicon glyphicon-search")
-
-	div(class="content") 
-		h4 人生的乐趣在于欣赏美丽的东西！
+				button(type="submit",class="btn	btn-default")
+					span(class="glyphicon	glyphicon-search")
+	div(class="pagepiling")
+		div(class="section",	style="background-color:	red;")
+			//图片轮播
+			div(id="sliderBox")
+				ul.imgs
+					li
+						img(src="public/images/1.jpg")
+					li
+						img(src="public/images/2.jpg")
+					//- li
+					//- 	img(src="public/images/3.jpg")
+					//- li
+					//- 	img(src="public/images/4.jpg")
+					//- li
+					//- 	img(src="public/images/5.jpg")
+		div(class="section",	style="background-color:	yellow;")
+			h4 人生的乐趣在于欣赏美丽的东西2222！
+		div(class="section",	style="background-color:	blue;")
+			h4 人生的乐趣在于欣赏美丽的东西3333！
+		div(class="section",	style="background-color:	green;")
+			h4 人生的乐趣在于欣赏美丽的东西4444！
 
 	script.
 		seajs.config({
 			alias:{
 				"$":"/sea-modules/jquery/jquery/2.1.0/jquery-debug.js",
 				"bootstrap":"/sea-modules/gallery/bootstrap/3.0.0/bootstrap.js",
-				"test_a":"/public/js/test/b.min.js"
+				"pagepiling":"/dev/jQuery_pagePiling/pagepiling.js",
+				"sliderBox":"/dev/sliderBox/sliderBox.js"
 			}
 		})
 
-		seajs.use(["$","test_a", "bootstrap"], function($, test_a){
-			var a = new test_a(2);
-			var b = a.area();
-			console.log( b );
-			//- $("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click", function(event){
-			//- 	// 获取导航栏的点击事件的元素
-			//- 	var $clickEl = event.target || event.currentTarget;
-			//- 	$.ajax({url:"/"+ $clickEl.innerText});
-			//- });
-			$("#bs-navbar-collapse-1").delegate("a[class='years'][href='#']","click", function(event){
-				// 获取年份的点击事件的元素
-				var $clickEl = event.target || event.currentTarget;
-				console.log( $clickEl.innerHTML );
-				console.log( $clickEl.innerText );
+		seajs.use(["$", "sliderBox", "pagepiling",	"bootstrap"],	function($, sliderBox){
+
+			//-	$("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click",	function(event){
+			//-		//	获取导航栏的点击事件的元素
+			//-		var	$clickEl	=	event.target	||	event.currentTarget;
+			//-		$.ajax({url:"/"+	$clickEl.innerText});
+			//-	});
+
+			$(".pagepiling").pagepiling({
+				menu:	'#menu',
+				anchors:	['page1',	'page2',	'page3',	'page4'],
+				sectionsColor:	['white',	'#ee005a',	'#2C3E50',	'#39C'],
+				navigation:	{
+					'position':	'right',
+					'tooltips':	['Page	1',	'Page	2',	'Page	3',	'Pgae	4']
+					},
+				afterRender:	function(){
+					$('#pp-nav').addClass('custom');
+				},
+				afterLoad:	function(anchorLink,	index){
+					if(index>1){
+						$('#pp-nav').removeClass('custom');
+					}else{
+						$('#pp-nav').addClass('custom');
+					}
+				}
+			});
+			//- console.log(sliderBox);
+			var tt = sliderBox;
+			console.log(tt);
+			tt(document, "sliderBox");
+
+			$("#bs-navbar-collapse-1").delegate("a[class='years'][href='#']","click",	function(event){
+				//	获取年份的点击事件的元素
+				var	$clickEl	=	event.target	||	event.currentTarget;
+				console.log(	$clickEl.innerHTML	);
+				console.log(	$clickEl.innerText	);
 			});
 
 			//点击搜索按钮
 			$(".navbar-form").submit(function(event){
-				var $inputs = $(this).find("input");
-				var flag = false;
-				for(var i=0, len=$inputs.length; i<len; i++){
-					var $el = $inputs[i];
+				var	$inputs	=	$(this).find("input");
+				var	flag	=	false;
+				for(var	i=0,	len=$inputs.length;	i<len;	i++){
+					var	$el	=	$inputs[i];
 					if($el.value){
-						flag = true;
+						flag	=	true;
 						break;
 					}
 				}
-				if(!flag ){
-					return false;    //阻止表单提交
+				if(!flag	){
+					return	false;	//阻止表单提交
 				}
 				else{
 					console.log("允许表单提交");
