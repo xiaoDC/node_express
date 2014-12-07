@@ -1,14 +1,97 @@
-.navbar
-	font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif"
-	font-size: 20px
+// .navbar
+// 	font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif"
+// 	font-size: 20px
 
-.content
+// .content
+// 	font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif"
+// 	font-size: 15px
+// 	margin: 50px auto
+// 	padding: 20px
+// 	line-height: 26px
+// 	width: 960px
+// 	border-left: 1px solid rgb(221,221,221)
+// 	border-right: 1px solid rgb(221,221,221)
+// 	border-radius: 2px
+
+// body
+// 	background-color: #cccfff
+
+
+.navbar
+	height: 50px
+	width: 100%
+	position: fixed
+	font-size: 20px
 	font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif"
-	font-size: 15px
-	margin: 50px auto
-	padding: 20px
-	line-height: 26px
-	width: 960px
-	border-left: 1px solid rgb(221,221,221)
-	border-right: 1px solid rgb(221,221,221)
-	border-radius: 2px
+	border-bottom: 1px solid rgb(221,221,221)
+	opacity: .9
+	a
+		text-decoration: none
+		&:focus, &:hover
+			text-decoration: underline
+	.nav
+		height: 50px
+		float: left
+		line-height: 50px
+		.logo
+			float: left
+			width: 100px
+			span
+				padding: 0 10px
+		.nav_content
+			padding:  0 10
+			float: left
+			overflow: hidden
+			*zoom: 1
+			li
+				float: left
+				padding: 0 10px
+	.search
+		float: right
+		margin-right: 10px
+		height: 50px
+		input
+			height: 34px
+			margin: 7px 7px
+			border: 1px solid #ccc
+			border-radius: 5px
+			padding: 0 6px
+			&:focus
+				border-color: #66afe9
+				outline: 0
+				outline-offset: -2px
+				box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
+		input[type="text"]
+			width: 150px
+		button
+			width: 34px
+			height: 34px
+			display: inline-block
+			text-align: center
+			white-space: nowrap
+			vertical-align: middle
+			-webkit-user-select: none
+			-moz-user-select: none
+			-ms-user-select: none
+			user-select: none
+			-webkit-appearance: button
+			text-transform: none
+			// clip: rect(0, 0, 0, 0)
+			// pointer-events: none
+			cursor: pointer
+			&:focus, &:hover
+				cursor: poinetr
+
+
+
+
+
+
+
+
+
+
+
+
+
+

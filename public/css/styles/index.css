@@ -1,16 +1,64 @@
 .navbar {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  font-size: 20px;
   font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-  font-size: 20px; }
-
-.content {
-  font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-  font-size: 15px;
-  margin: 50px auto;
-  padding: 20px;
-  line-height: 26px;
-  width: 960px;
-  border-left: 1px solid #dddddd;
-  border-right: 1px solid #dddddd;
-  border-radius: 2px; }
+  border-bottom: 1px solid #dddddd;
+  opacity: 0.9; }
+  .navbar a {
+    text-decoration: none; }
+    .navbar a:focus, .navbar a:hover {
+      text-decoration: underline; }
+  .navbar .nav {
+    height: 50px;
+    float: left;
+    line-height: 50px; }
+    .navbar .nav .logo {
+      float: left;
+      width: 100px; }
+      .navbar .nav .logo span {
+        padding: 0 10px; }
+    .navbar .nav .nav_content {
+      padding: 0 10;
+      float: left;
+      overflow: hidden;
+      *zoom: 1; }
+      .navbar .nav .nav_content li {
+        float: left;
+        padding: 0 10px; }
+  .navbar .search {
+    float: right;
+    margin-right: 10px;
+    height: 50px; }
+    .navbar .search input {
+      height: 34px;
+      margin: 7px 7px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 6px; }
+      .navbar .search input:focus {
+        border-color: #66afe9;
+        outline: 0;
+        outline-offset: -2px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+    .navbar .search input[type="text"] {
+      width: 150px; }
+    .navbar .search button {
+      width: 34px;
+      height: 34px;
+      display: inline-block;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-appearance: button;
+      text-transform: none;
+      cursor: pointer; }
+      .navbar .search button:focus, .navbar .search button:hover {
+        cursor: poinetr; }
 
 /*# sourceMappingURL=index.css.map */
