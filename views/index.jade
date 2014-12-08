@@ -10,37 +10,10 @@ script.
 	})
 
 	seajs.use(["$","test_a", "bootstrap"], function($, test_a){
-		var a = new test_a(2);
-		var b = a.area();
-		console.log( b );
 		//- $("#bs-navbar-collapse-1").delegate("a[class='bar'][href='#']","click", function(event){
 		//- 	// 获取导航栏的点击事件的元素
 		//- 	var $clickEl = event.target || event.currentTarget;
 		//- 	$.ajax({url:"/"+ $clickEl.innerText});
 		//- });
-		$("#bs-navbar-collapse-1").delegate("a[class='years'][href='#']","click", function(event){
-			// 获取年份的点击事件的元素
-			var $clickEl = event.target || event.currentTarget;
-			console.log( $clickEl.innerHTML );
-			console.log( $clickEl.innerText );
-		});
-
-		//点击搜索按钮
-		$(".navbar-form").submit(function(event){
-			var $inputs = $(this).find("input");
-			var flag = false;
-			for(var i=0, len=$inputs.length; i<len; i++){
-				var $el = $inputs[i];
-				if($el.value){
-					flag = true;
-					break;
-				}
-			}
-			if(!flag ){
-				return false;    //阻止表单提交
-			}
-			else{
-				console.log("允许表单提交");
-			}
-		});
+		
 	})

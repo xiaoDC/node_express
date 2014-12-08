@@ -2,23 +2,63 @@
 extends layout
 block links
 	link(rel="stylesheet",href="/public/css/styles/index.css")
+	link(rel="stylesheet",href="/public/css/styles/iconFont.css")
+	script.
+		window.onload = function(){
+			var elSearch = document.getElementById("search");
+			elSearch.onclick = elSearch.click = function(event){
+				var preSibling  = this.previousElementSibling;
+				var oldClass    = this.className;
+				var idx         = oldClass.indexOf("search-toggle");
+				var nextSibling = this.nextElementSibling;
+				if(idx > 0 ){
+					this.className            = oldClass.slice(0, (idx-1));
+					preSibling.className      = "";
+					preSibling.style.display  = "none";
+					nextSibling.className     = "";
+					nextSibling.style.display = "none";
+				}else{
+					this.className            = oldClass + " search-toggle";
+					preSibling.className      = "input-toggle";
+					preSibling.style.display  = "inline-block";
+					nextSibling.className     = "cancle-toggle";
+					nextSibling.style.display = "inline-block";
+				}
+			}
+			var elCancle = document.getElementById("cancle");
+			elCancle.onclick = elCancle.click = function(event){
+				var el = document.getElementById("searchInput");
+				el.value = "";
+			}
+			//- console.log(elSearch.click);
+		}
 block content
 	div(class="navbar")
 		div.nav
 			div(class="logo")
 				span Movies
-			ul(class="nav_content")
-				li
-					a(href="#") Index
-				li
-					a(href="#") Category
-				li
-					a(href="#") Years
-				li
-					a(href="#") Interest
-		div(class="search")
-			input(type="text")
-			button(class="botton")
+			div.toggle_fluid_botton
+				button.menu
+					span(class="glyphicon glyphicon-align-justify", aria-hidden="true")
+
+				ul(class="nav_content")
+					li
+						a(href="#") Index
+					li
+						a(href="#") Category
+					li
+						a(href="#") Years
+					li
+						a(href="#") Interest
+				ul.nav_utils
+					li
+						input(id="searchInput", type="text")
+						div.search(id="search")
+								span(class="glyphicon glyphicon-search")
+						div.cancle(id="cancle" )
+							span(class="glyphicon glyphicon-remove")
+					li.signin
+						button SignIn
 
 
 
