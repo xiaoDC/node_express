@@ -5,8 +5,9 @@ block links
 	link(rel="stylesheet",href="/public/css/styles/iconFont.css")
 	script.
 		window.onload = function(){
+			document.getElementById("searchInput").focus();
 			var elSearch = document.getElementById("search");
-			elSearch.onclick = elSearch.click = function(event){
+			elSearch.onclick = function(event){
 				var preSibling  = this.previousElementSibling;
 				var oldClass    = this.className;
 				var idx         = oldClass.indexOf("search-toggle");
@@ -24,13 +25,15 @@ block links
 					nextSibling.className     = "cancle-toggle";
 					nextSibling.style.display = "inline-block";
 				}
+				document.getElementById("searchInput").focus();
+
 			}
 			var elCancle = document.getElementById("cancle");
-			elCancle.onclick = elCancle.click = function(event){
-				var el = document.getElementById("searchInput");
+			elCancle.onclick = function(event){
+				var el   = document.getElementById("searchInput");
 				el.value = "";
+				document.getElementById("searchInput").focus();
 			}
-			//- console.log(elSearch.click);
 		}
 block content
 	div(class="navbar")
@@ -51,7 +54,7 @@ block content
 					li
 						a(href="#") Interest
 				ul.nav_utils
-					li
+					li.searchli
 						input(id="searchInput", type="text")
 						div.search(id="search")
 								span(class="glyphicon glyphicon-search")
@@ -59,6 +62,26 @@ block content
 							span(class="glyphicon glyphicon-remove")
 					li.signin
 						button SignIn
+	script.
+		seajs.config({
+			alias:{
+				"$":"/sea-modules/jquery/jquery/2.1.0/jquery-debug.js"
+			}
+		})
+
+		seajs.use(["$"], function($){
+			$(".menu").delegate("span", "click", function(event){
+				var $that = $(this);
+				var $parent = $that.parent().parent();
+				var uls = $parent.children("ul");
+				for (var i = 0, len = uls.length; i < len; i++) {
+					var $ul = $(uls[i]);
+					$ul.toggleClass("clearFloat");
+					$ul.toggleClass("toggleDispaly");
+				}
+			})
+		})
+
 
 
 

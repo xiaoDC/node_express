@@ -137,7 +137,7 @@ button {
       display: none; }
     .navbar .nav .toggle_fluid_botton li {
       float: none;
-      padding: 5px 0; }
+      padding: 0; }
       .navbar .nav .toggle_fluid_botton li input {
         display: none; }
     .navbar .nav .toggle_fluid_botton .search {
@@ -150,6 +150,40 @@ button {
       height: 36px;
       width: 50px;
       margin: 7px 10px;
-      background-color: #FFF; } }
+      background-color: #FFF; }
+    .navbar .nav .toggle_fluid_botton .clearFloat {
+      float: none; }
+    .navbar .nav .toggle_fluid_botton .toggleDispaly {
+      padding: 0 10px;
+      display: block;
+      position: relative;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid #ccc; }
+      .navbar .nav .toggle_fluid_botton .toggleDispaly li {
+        position: relative;
+        float: none;
+        display: block; }
+      .navbar .nav .toggle_fluid_botton .toggleDispaly .searchli {
+        float: left; }
+        .navbar .nav .toggle_fluid_botton .toggleDispaly .searchli input {
+          float: left; }
+        .navbar .nav .toggle_fluid_botton .toggleDispaly .searchli div {
+          display: block;
+          float: left; }
+        .navbar .nav .toggle_fluid_botton .toggleDispaly .searchli .search {
+          margin-left: 0; }
+      .navbar .nav .toggle_fluid_botton .toggleDispaly .signin {
+        float: left; }
+        .navbar .nav .toggle_fluid_botton .toggleDispaly .signin button {
+          display: block; }
+  .navbar .nav ul.nav_utils {
+    display: none; }
+
+  .search-toggle {
+    left: -210px; }
+
+  .cancle-toggle {
+    left: -60px; } }
 
 /*# sourceMappingURL=index.css.map */

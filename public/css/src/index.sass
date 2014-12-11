@@ -122,6 +122,8 @@ button
 		cursor: pointer
 
 
+
+
 @media screen and (max-width: 767px)
 	.navbar
 		.nav
@@ -134,7 +136,7 @@ button
 					display: none
 				li
 					float: none
-					padding: 5px 0
+					padding: 0
 					input
 						display: none
 				.search
@@ -149,6 +151,38 @@ button
 					width: 50px
 					margin: 7px 10px
 					background-color: #FFF
+				.clearFloat
+					float: none
+				.toggleDispaly
+					padding: 0 10px
+					display: block
+					position: relative
+					left: 0
+					width: 100%
+					border-bottom: 1px solid #ccc
+					li
+						position: relative
+						float: none
+						display: block
+					.searchli
+						float: left
+						input
+							float: left
+						div
+							display: block
+							float: left
+						.search
+							margin-left: 0
+					.signin
+						float: left
+						button
+							display: block
+			ul.nav_utils
+				display: none
+	.search-toggle
+		left: -210px
+	.cancle-toggle
+		left: -60px
 
 
 @media screen and (max-width: 991px)
